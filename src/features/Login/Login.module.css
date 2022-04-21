@@ -1,0 +1,158 @@
+.wrapp {
+    width: 350px;
+    height: 420px;
+    padding: 20px;
+    border-radius: 10px;
+    background: lightsteelblue;
+    display: block;
+    box-shadow: 3px 3px 10px gray;
+    margin: 20px auto;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100px;
+}
+
+.titleText {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.secondTitleText {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    padding-left: 10px;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    outline: none;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+}
+
+.input:focus {
+    border: solid 1px gray;
+}
+
+.passwordAndLoginImput {
+    display: flex;
+    position: relative;
+    justify-content: end;
+}
+.passwordBtn {
+    margin-right: 10px;
+    margin-top: 20px;
+    position: absolute;
+}
+.passwordImg {
+    width: 25px;
+    height: 25px;
+}
+
+.forgotContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.checkboxText {
+    margin-left: 10px;
+}
+
+.forgot {
+    font-size: 14px;
+    color: black;
+    border: 0;
+    background-color: white;
+    text-decoration: none;
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    height: 100px;
+}
+
+.button {
+    width: 250px;
+    height: 35px;
+    border-radius: 20px;
+    color: white;
+    background-color: mediumblue;
+    box-shadow: 3px 3px 10px gray;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: blue;
+}
+
+.button:disabled {
+    background: lightgrey;
+    box-shadow: 1px 1px 5px gray;
+}
+
+.button:active {
+    outline: none;
+    box-shadow: 0 0 0 4px #cbd6ee;
+}
+
+.button:disabled {
+    background: lightgrey;
+    box-shadow: 1px 1px 5px gray;
+    cursor: not-allowed;
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+}
+
+.footerText {
+    font-size: 14px;
+    opacity: 80%;
+}
+
+.footerButton {
+    border: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: mediumblue;
+    text-decoration: none;
+}
+
+.footerButton:hover {
+    color: blue;
+}
+
+.error {
+    height: 20px;
+    font-size: 14px;
+    color: red;
+}
