@@ -37,12 +37,10 @@ export const setUserDataForPreLogin = (data: LoginParamsType) => async (dispatch
   dispatch(setAppStatusAC("loading"))
     try {
         const res = await authAPI.preLogin(data)
-        console.log(res)
         dispatch(setMassage(res.statusText))
         dispatch(setAppStatusAC("succeeded"))
     } catch (e:any) {
         dispatch(setAppStatusAC('failed'))
-        console.log(e.response)
         dispatch(setMassage(e))
     }
 }
@@ -51,7 +49,6 @@ export const setLogin = (email: string, code: string) => async (dispatch: Dispat
     dispatch(setAppStatusAC("loading"))
     try {
         const res = await authAPI.login(email, code)
-        console.log(res)
         dispatch(setToken(res.data.access, res.data.refresh))
         dispatch(setMassage(res.statusText))
         // dispatch(setAppSuccessAC(res.statusText))
@@ -59,7 +56,6 @@ export const setLogin = (email: string, code: string) => async (dispatch: Dispat
         dispatch(setAppStatusAC("succeeded"))
     } catch (e:any) {
         dispatch(setAppStatusAC('failed'))
-        console.log(e)
         dispatch(setMassage(e))
     }
 }
@@ -68,12 +64,10 @@ export const setLogout = () => async (dispatch: Dispatch<LoginActionsType>) => {
     dispatch(setAppStatusAC("loading"))
     try {
         const res = await authAPI.logOut()
-        console.log(res)
         dispatch(setMassage(res.statusText))
         dispatch(setAppStatusAC("succeeded"))
     } catch (e:any) {
         dispatch(setAppStatusAC('failed'))
-        console.log(e)
         dispatch(setMassage(e))    }
 }
 

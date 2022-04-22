@@ -16,7 +16,6 @@ const RegisterVerify = () => {
     const toLogin = () => {
         navigate(path.login)
     }
-    console.log('Страница отрисовалась')
 
     useEffect(() => {
         if (keyParam){

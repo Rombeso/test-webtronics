@@ -32,7 +32,6 @@ const LoginVerify = () => {
     resolver: yupResolver(schema)
   });
   const onSubmit = (data: LoginParamsType) => {
-    console.log(data.login, verifyCode)
     verifyCode && dispatch(setLogin(data.login, verifyCode))
   }
 
