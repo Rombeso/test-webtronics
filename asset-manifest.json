@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/test-webtronics/static/css/main.41d41d98.css",
-    "main.js": "/test-webtronics/static/js/main.d313c04a.js",
+    "main.js": "/test-webtronics/static/js/main.e623d2fc.js",
     "static/js/787.3cbb5874.chunk.js": "/test-webtronics/static/js/787.3cbb5874.chunk.js",
     "index.html": "/test-webtronics/index.html",
     "main.41d41d98.css.map": "/test-webtronics/static/css/main.41d41d98.css.map",
-    "main.d313c04a.js.map": "/test-webtronics/static/js/main.d313c04a.js.map",
+    "main.e623d2fc.js.map": "/test-webtronics/static/js/main.e623d2fc.js.map",
     "787.3cbb5874.chunk.js.map": "/test-webtronics/static/js/787.3cbb5874.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.41d41d98.css",
-    "static/js/main.d313c04a.js"
+    "static/js/main.e623d2fc.js"
   ]
 }
