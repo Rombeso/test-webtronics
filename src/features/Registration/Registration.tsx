@@ -17,14 +17,16 @@ const Registration = () => {
     const status = useSelector<AppRootStateType>(state => state.app.status)
     const dispatch: AppDispatch = useDispatch()
     let [isType, setIsType] = useState(true)
-
     const navigate = useNavigate()
+
     const toCheckEmail = () => {
         navigate(path.checkEmail)
     }
+
     const toLogin = () => {
         navigate(path.login)
     }
+
     const schema = yup.object({
         userName: yup.string().min(2).required(),
         email: yup.string().email().required(),
@@ -39,10 +41,11 @@ const Registration = () => {
         mode: "onChange",
         resolver: yupResolver(schema)
     })
-    const onSubmit: SubmitHandler<StateForm> = (data) => {
 
+    const onSubmit: SubmitHandler<StateForm> = (data) => {
         dispatch(addUser(data.userName, data.email, data.password1, data.password2, data.keyword))
     }
+
     const toggleTypeInput = () => {
         setIsType(isType = !isType)
     }

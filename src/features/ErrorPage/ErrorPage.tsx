@@ -2,8 +2,8 @@ import React from 'react';
 
 const ErrorPage = () => {
   return (
-    <div>
-      Error 404
+    <div style={{textAlign: "center"}}>
+      <h1>Error 404 | Page not found</h1>
     </div>
   );
 };

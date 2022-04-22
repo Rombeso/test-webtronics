@@ -3,7 +3,7 @@ import s from './Login.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
 import * as yup from "yup";
-import {Navigate, NavLink, useNavigate} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import eye from '../../asset/images/eye.png'
 import hidden from '../../asset/images/hidden.png'
 import {LoginParamsType} from "../../api/login-api";
@@ -22,6 +22,7 @@ const schema = yup.object({
 const Login = () => {
   const [show, setShow] = useState(false)
   const status = useSelector<AppRootStateType>(state => state.app.status)
+
 
   const onclickShowHandle = () => {
     setShow(!show)

@@ -3,12 +3,12 @@ import s from './LoginVerify.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
 import * as yup from "yup";
-import {NavLink, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {LoginParamsType} from "../../api/login-api";
 import {Preloader} from "../../components/Preloader/Preloader";
 import { yupResolver } from '@hookform/resolvers/yup';
 import {AppDispatch, AppRootStateType} from "../../store/store";
-import {setLogin, setUserDataForPreLogin} from "../../store/reducers/login-reducer";
+import {setLogin} from "../../store/reducers/login-reducer";
 import ReactInputVerificationCode from 'react-input-verification-code';
 import './LoginAddStyles.css'
 import {path} from "../../routes/Routes";
@@ -20,6 +20,9 @@ const schema = yup.object({
 
 const LoginVerify = () => {
   const [verifyCode, setVerifyCode] = useState<null | string>(null)
+  const dispatch: AppDispatch = useDispatch()
+  const status = useSelector<AppRootStateType>(state => state.app.status)
+  const navigate = useNavigate()
 
   const getVerifyCode = (data: string) => {
     setVerifyCode(data)
@@ -32,9 +35,6 @@ const LoginVerify = () => {
     console.log(data.login, verifyCode)
     verifyCode && dispatch(setLogin(data.login, verifyCode))
   }
-  const dispatch: AppDispatch = useDispatch()
-  const status = useSelector<AppRootStateType>(state => state.app.status)
-  const navigate = useNavigate()
 
   useEffect(() => {
     if (status === "succeeded") {
@@ -68,8 +68,8 @@ const LoginVerify = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
 export default LoginVerify;
 

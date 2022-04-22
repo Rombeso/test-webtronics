@@ -1,27 +1,20 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import s from './Logout.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {useForm} from "react-hook-form";
-import * as yup from "yup";
-import {Navigate, NavLink, useNavigate} from 'react-router-dom';
-import eye from '../../asset/images/eye.png'
-import hidden from '../../asset/images/hidden.png'
-import {LoginParamsType} from "../../api/login-api";
+import { useNavigate} from 'react-router-dom';
 import {Preloader} from "../../components/Preloader/Preloader";
-import {yupResolver} from '@hookform/resolvers/yup';
 import {AppDispatch, AppRootStateType} from "../../store/store";
-import {setLogout, setUserDataForPreLogin} from "../../store/reducers/login-reducer";
+import {setLogout} from "../../store/reducers/login-reducer";
 import {path} from "../../routes/Routes";
 import {setAppStatusAC} from "../../store/reducers/app-reducer";
 
-
 const Logout = () => {
-
     const dispatch: AppDispatch = useDispatch()
     const status = useSelector<AppRootStateType>(state => state.app.status)
     const access = useSelector<AppRootStateType>(state => state.login.access)
     const refresh = useSelector<AppRootStateType>(state => state.login.refresh)
     const navigate = useNavigate()
+
     const toLogout = () => {
         dispatch(setLogout())
     }
@@ -46,8 +39,8 @@ const Logout = () => {
             <p className={s.secondTitleText}><b>Your access: </b>{`${access}`}</p>
             <p className={s.secondTitleText}><b>Your refresh: </b>{`${refresh}`}</p>
         </>
-    );
-};
+    )
+}
 
 export default Logout;
 

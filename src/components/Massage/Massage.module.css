@@ -1,0 +1,22 @@
+.container {
+    position: fixed;
+    margin: 20px;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    border: solid 2px white;
+    width: 340px;
+    min-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #ffffff50;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px gray;
+}
+
+.xIcon {
+    position: absolute;
+    top: -50px;
+    left: 43%;
+    cursor: pointer;
+}

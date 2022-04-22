@@ -1,7 +1,7 @@
 
 import { Dispatch} from "redux";
 import { registrationAPI } from "../../api/registration-api";
-import {setAppStatusAC} from "./app-reducer";
+import {setAppStatusAC, setMassage} from "./app-reducer";
 import {AppRootActionsType} from "../store";
 
 
@@ -42,16 +42,16 @@ export const registerVerifyUser = (key: string) => {
 
 export const addUser = (username: string, email: string, password1: string, password2: string, keyword: string) => async (dispatch: Dispatch<AppRootActionsType>) => {
     dispatch(setAppStatusAC("loading"))
+
     try {
        const res = await registrationAPI.addUser(username, email, password1, password2, keyword)
         dispatch(setAppStatusAC("succeeded"))
         console.log(res)
-        // dispatch(setAppSuccessAC(res.statusText))
-        // dispatch(setAppErrorAC(null))
-    } catch (e) {
+        dispatch(setMassage(res.statusText))
+    } catch (e: any) {
         dispatch(setAppStatusAC('failed'))
         console.log(e)
-        // dispatch(setAppErrorAC(error.response.data.error))
+        dispatch(setMassage(e))
     }
 }
 export const verifyUser = (key: string) => async (dispatch: Dispatch<AppRootActionsType>) => {
@@ -60,12 +60,12 @@ export const verifyUser = (key: string) => async (dispatch: Dispatch<AppRootActi
         const res = await registrationAPI.verifyUser(key)
         dispatch(setAppStatusAC("succeeded"))
         console.log(res)
-        // dispatch(setAppSuccessAC(res.statusText))
-        // dispatch(setAppErrorAC(null))
-    } catch (e) {
+        dispatch(setMassage(res.statusText))
+    } catch (e: any) {
         dispatch(setAppStatusAC('failed'))
         console.log(e)
-        // dispatch(setAppErrorAC(error.response.data.error))
+        dispatch(setMassage(e))
+        console.log(e.response)
     }
 }
 export type StateRegistrationReducerType = {

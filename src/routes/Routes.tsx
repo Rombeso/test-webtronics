@@ -1,10 +1,7 @@
 import React from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
-import s from './routes.module.css'
-import {useSelector} from "react-redux";
 import Logout from "../features/Logout/Logout";
 import RegisterVerify from "../features/RegisterVerify/RegisterVerify";
-import {AppRootStateType} from "../store/store";
 import Login from "../features/Login/Login";
 import Registration from "../features/Registration/Registration";
 import ErrorPage from "../features/ErrorPage/ErrorPage";
@@ -21,9 +18,7 @@ export const path = {
   loginVerify: '/login-verify'
 }
 
-
 const RoutesComponent = () => {
-
   return (<>
       <Routes>
         <Route path={'/'} element={<Navigate to={path.login}/>}/>
@@ -34,6 +29,7 @@ const RoutesComponent = () => {
         <Route path={path.errorPage} element={<ErrorPage/>}/>
         <Route path={path.checkEmail} element={<CheckEmail/>}/>
         <Route path={path.loginVerify} element={<LoginVerify/>}/>
+        <Route path={'/*'} element={<Navigate to={path.errorPage}/>}/>
       </Routes>
     </>
   );

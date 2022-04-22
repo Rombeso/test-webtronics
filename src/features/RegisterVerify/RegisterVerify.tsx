@@ -12,6 +12,7 @@ const RegisterVerify = () => {
     const dispatch: AppDispatch = useDispatch()
     const status = useSelector<AppRootStateType>(state => state.app.status)
     const navigate = useNavigate()
+
     const toLogin = () => {
         navigate(path.login)
     }

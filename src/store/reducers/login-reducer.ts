@@ -1,7 +1,7 @@
 
 
 import {Dispatch} from "redux";
-import {AppActionType, setAppStatusAC, SetAppStatusActionType} from "./app-reducer";
+import {AppActionType, setAppStatusAC, SetAppStatusActionType, setMassage} from "./app-reducer";
 import {authAPI, LoginParamsType} from "../../api/login-api";
 
 type InitialStateType = {
@@ -38,14 +38,12 @@ export const setUserDataForPreLogin = (data: LoginParamsType) => async (dispatch
     try {
         const res = await authAPI.preLogin(data)
         console.log(res)
-        // dispatch(setUserProfileData(res.data))
-        // dispatch(setAppSuccessAC(res.statusText))
-        // dispatch(setAppErrorAC(null))
+        dispatch(setMassage(res.statusText))
         dispatch(setAppStatusAC("succeeded"))
-    } catch (e) {
+    } catch (e:any) {
         dispatch(setAppStatusAC('failed'))
-        console.log(e)
-        // dispatch(setAppErrorAC(e.response.data.error))
+        console.log(e.response)
+        dispatch(setMassage(e))
     }
 }
 
@@ -55,14 +53,14 @@ export const setLogin = (email: string, code: string) => async (dispatch: Dispat
         const res = await authAPI.login(email, code)
         console.log(res)
         dispatch(setToken(res.data.access, res.data.refresh))
-        // dispatch(setUserProfileData(res.data))
+        dispatch(setMassage(res.statusText))
         // dispatch(setAppSuccessAC(res.statusText))
         // dispatch(setAppErrorAC(null))
         dispatch(setAppStatusAC("succeeded"))
-    } catch (e) {
+    } catch (e:any) {
         dispatch(setAppStatusAC('failed'))
         console.log(e)
-        // dispatch(setAppErrorAC(e.response.data.error))
+        dispatch(setMassage(e))
     }
 }
 
@@ -71,37 +69,17 @@ export const setLogout = () => async (dispatch: Dispatch<LoginActionsType>) => {
     try {
         const res = await authAPI.logOut()
         console.log(res)
-        // dispatch(setUserProfileData(res.data))
-        // dispatch(setAppSuccessAC(res.statusText))
-        // dispatch(setAppErrorAC(null))
+        dispatch(setMassage(res.statusText))
         dispatch(setAppStatusAC("succeeded"))
-    } catch (e) {
+    } catch (e:any) {
         dispatch(setAppStatusAC('failed'))
         console.log(e)
-        // dispatch(setAppErrorAC(e.response.data.error))
-    }
+        dispatch(setMassage(e))    }
 }
 
 export type LoginActionsType =
     | setTokenActionType
     | AppActionType
 type setTokenActionType = ReturnType<typeof setToken>
-
-
-// export const logOutTC = () => (dispatch: Dispatch<LoginActionsType>) => {
-//   dispatch(setAppStatusAC("loading"))
-//   authAPI.logOut()
-//     .then(res => {
-//       dispatch(setIsLoggedInAC(false))
-//       dispatch(setAppStatusAC("succeeded"))
-//       dispatch(setAppSuccessAC(res.statusText))
-//     })
-//     .catch(err => {
-//       dispatch(setAppErrorAC(err.response.data.error))
-//       dispatch(setAppStatusAC('failed'))
-//     })
-// }
-
-
 
 export default loginReducer;

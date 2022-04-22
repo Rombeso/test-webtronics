@@ -29,8 +29,6 @@ export type LogOutResponseType = {
 export type ResponseType = {
   access: string
   refresh: string
-
   statusText: string
-
   error?: string;
 }
